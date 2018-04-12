@@ -1,0 +1,98 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace ehr
+
+participant User identified by email {
+  o String email
+}
+
+asset SampleAsset identified by assetId {
+  o String assetId
+  o String value
+}
+
+transaction ChangeAssetValue {
+  o String newValue
+  --> Asset relatedAsset
+}
+
+asset PatientInfo identified by id {
+  --> Patient owner
+  o String id  //String chosen like userids alternative integer choosing string for now
+  o String firstname
+  o String lastname
+  o Gender gender optional
+  o DateTime dayOfBirth optional
+  o Integer phonenumber optional
+  o Nationality nationality optional
+  o String[] medicationArray optional
+  o Visits[] pastVisitsArray optional
+}
+
+participant Doctor identified by id {
+  o String id
+  o String title
+  o String firstname
+  o String lastname
+  o String department
+  o Integer salary optional
+}
+
+participant Head identified by id{
+  o String id
+  o String title
+  o String firstname
+  o String lastname
+  
+}
+
+participant Patient identified by id {
+  o String id
+  o String title
+  o String firstname
+  o String lastname
+  o DateTime lastvisit 
+  o Double balanceDue optional
+  
+}
+
+enum Gender {
+  o MALE
+  o FEMALE
+  o OTHER
+}
+enum Nationality {
+  o AMERICAN
+  o BRITISH
+  o INDIAN
+  o PAKISTANI
+  o CANADIAN
+  o EMIRATI
+  o OTHER
+}
+concept Visits {
+  o DateTime visitDate
+  o String procedure optional
+  o String doctor optional 
+  o String[] medicinePrescribed optional 
+}
+
+transaction updateMedication {
+  --> Patient owner
+  o String[] medicationArray
+  o PatientInfo patientInfo
+}
+
+transaction updatePastVisits {
+  --> Patient owner
+  o Visits newVisit
+  o PatientInfo patientInfo
+}
+
+transaction updateContact {
+  --> Patient owner
+  o Integer phonenumber optional
+  o PatientInfo patientInfo
+}
