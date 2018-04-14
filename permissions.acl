@@ -10,7 +10,7 @@ rule Patientonlyseethemselves{
   action: ALLOW
 }
 rule Patientonlyseetheirinfo {
-  description: "Trader can see/work with their own Commodities"
+  description: "Patients can see/work with their own Commodities"
   participant(t): "ehr.Patient"
   operation: READ
   resource(c): "ehr.PatientInfo"
@@ -18,7 +18,7 @@ rule Patientonlyseetheirinfo {
   action: ALLOW
 }
 rule Patientownhistory{
-  description: "Traders should be able to see the history of their own transactions only"
+  description: "Patients should be able to see the history of their own transactions only"
   participant(t): "ehr.Patient"
   operation: READ
   resource(v): "org.hyperledger.composer.system.HistorianRecord"
@@ -30,6 +30,13 @@ rule Doctorcansubmitpatientrecords{
     participant: "ehr.Doctor"
     operation: ALL
     resource: "ehr.PatientInfo"
+    action: ALLOW
+}
+rule Doctorcanadmitpatients{
+    description: "Enable Doctors to admit patients"
+    participant: "ehr.Doctor"
+    operation: ALL
+    resource: "ehr.Patient"
     action: ALLOW
 }
 rule Adminseethemselves {
