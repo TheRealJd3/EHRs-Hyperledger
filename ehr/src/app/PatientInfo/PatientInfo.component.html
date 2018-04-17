@@ -1,0 +1,604 @@
+<div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+
+            
+              <div class="form-group text-left">
+                <label for="patientID">patientID</label>
+                
+                  <input formControlName="patientID" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="firstname">firstname</label>
+                
+                  <input formControlName="firstname" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="lastname">lastname</label>
+                
+                  <input formControlName="lastname" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <label for="gender">gender</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="gender"
+                      
+                      name="gender"
+                      value="MALE"
+                      type="radio"
+                      
+                    />
+                    MALE
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="gender"
+                      
+                      name="gender"
+                      value="FEMALE"
+                      type="radio"
+                      
+                    />
+                    FEMALE
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="gender"
+                      
+                      name="gender"
+                      value="OTHER"
+                      type="radio"
+                      
+                    />
+                    OTHER
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="dayOfBirth">dayOfBirth</label>
+                
+                  <input formControlName="dayOfBirth" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="phonenumber">phonenumber</label>
+                
+                  <input formControlName="phonenumber" type="number" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <label for="nationality">nationality</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="AMERICAN"
+                      type="radio"
+                      
+                    />
+                    AMERICAN
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="BRITISH"
+                      type="radio"
+                      
+                    />
+                    BRITISH
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="INDIAN"
+                      type="radio"
+                      
+                    />
+                    INDIAN
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="PAKISTANI"
+                      type="radio"
+                      
+                    />
+                    PAKISTANI
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="CANADIAN"
+                      type="radio"
+                      
+                    />
+                    CANADIAN
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="EMIRATI"
+                      type="radio"
+                      
+                    />
+                    EMIRATI
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="nationality"
+                      
+                      name="nationality"
+                      value="OTHER"
+                      type="radio"
+                      
+                    />
+                    OTHER
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="medicationArray">medicationArray</label>
+                
+                  <input formControlName="medicationArray" type="text" class="form-control">
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="pastVisitsArray">pastVisitsArray</label>
+                
+                    <textarea formControlName="pastVisitsArray" class="form-control" rows="3"></textarea>
+                
+              </div>
+            
+          
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="updateAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="updateAssetModalLabel">Update Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+            <div class="form-group text-left">
+              <label for="patientID">patientID</label>
+
+              
+                <input [ngModel]="patientID"formControlName="patientID" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="firstname">firstname</label>
+
+              
+                <input [ngModel]="firstname"formControlName="firstname" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="lastname">lastname</label>
+
+              
+                <input [ngModel]="lastname"formControlName="lastname" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="gender">gender</label>
+
+              
+                
+                  <div class="row">
+                    <div class="col-xs-12 checkbox">
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="gender"
+                            [ngModel]="gender"
+                          
+                          name="gender"
+                          value="MALE"
+                          type="radio"
+                          
+                        />
+                        MALE
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="gender"
+                            [ngModel]="gender"
+                          
+                          name="gender"
+                          value="FEMALE"
+                          type="radio"
+                          
+                        />
+                        FEMALE
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="gender"
+                            [ngModel]="gender"
+                          
+                          name="gender"
+                          value="OTHER"
+                          type="radio"
+                          
+                        />
+                        OTHER
+                      </label>
+                    
+                    </div>
+                  </div>
+                
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="dayOfBirth">dayOfBirth</label>
+
+              
+                <input [ngModel]="dayOfBirth"formControlName="dayOfBirth" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="phonenumber">phonenumber</label>
+
+              
+                <input [ngModel]="phonenumber" formControlName="phonenumber" type="number" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="nationality">nationality</label>
+
+              
+                
+                  <div class="row">
+                    <div class="col-xs-12 checkbox">
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="AMERICAN"
+                          type="radio"
+                          
+                        />
+                        AMERICAN
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="BRITISH"
+                          type="radio"
+                          
+                        />
+                        BRITISH
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="INDIAN"
+                          type="radio"
+                          
+                        />
+                        INDIAN
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="PAKISTANI"
+                          type="radio"
+                          
+                        />
+                        PAKISTANI
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="CANADIAN"
+                          type="radio"
+                          
+                        />
+                        CANADIAN
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="EMIRATI"
+                          type="radio"
+                          
+                        />
+                        EMIRATI
+                      </label>
+                    
+                      <label>
+                        <input
+                          
+                            formControlName="nationality"
+                            [ngModel]="nationality"
+                          
+                          name="nationality"
+                          value="OTHER"
+                          type="radio"
+                          
+                        />
+                        OTHER
+                      </label>
+                    
+                    </div>
+                  </div>
+                
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="medicationArray">medicationArray</label>
+
+              
+                <input [ngModel]="medicationArray"formControlName="medicationArray" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="pastVisitsArray">pastVisitsArray</label>
+
+              
+                
+                  <textarea [ngModel]="pastVisitsArray" formControlName="pastVisitsArray" class="form-control" rows="3"></textarea>
+                
+              
+
+            </div>
+          
+
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
+        <div class="modal-body">
+          Are you sure you want to delete this asset?
+        </div>
+        <div class="modal-footer">
+          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+  <h1 id='assetName'>PatientInfo</h1>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add Asset</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead class="thead">
+          <tr class="thead-cols">
+            
+                <th class="info">patientID</th>
+            
+                <th class="info">firstname</th>
+            
+                <th class="info">lastname</th>
+            
+                <th class="info">gender</th>
+            
+                <th class="info">dayOfBirth</th>
+            
+                <th class="info">phonenumber</th>
+            
+                <th class="info">nationality</th>
+            
+                <th class="info">medicationArray</th>
+            
+                <th class="info">pastVisitsArray</th>
+            
+              <th class="info">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asset of allAssets">
+
+            
+                <td>{{asset.patientID}}</td>
+            
+                <td>{{asset.firstname}}</td>
+            
+                <td>{{asset.lastname}}</td>
+            
+                <td>{{asset.gender}}</td>
+            
+                <td>{{asset.dayOfBirth}}</td>
+            
+                <td>{{asset.phonenumber}}</td>
+            
+                <td>{{asset.nationality}}</td>
+            
+                <td>{{asset.medicationArray}}</td>
+            
+                <td>{{asset.pastVisitsArray}}</td>
+            
+            <td>
+              <button (click)="getForm(asset.patientID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Update Asset</button>
+
+              <button (click)="setId(asset.patientID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Delete Asset</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

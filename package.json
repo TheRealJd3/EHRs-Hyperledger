@@ -3,15 +3,20 @@
   "version": "0.0.1",
   "description": "Electronic Health Records",
   "scripts": {
+<<<<<<< HEAD
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/ehr.bna",
     "pretest": "npm run lint",
     "lint": "eslint .",
     "test": "nyc mocha -t 0 test/*.js && cucumber-js"
+=======
+    "test": "mocha --recursive"
+>>>>>>> 3cd89f379a4ae399e4a31ea223c139b219c2a119
   },
   "author": "Jason",
   "email": "jd232@hw.ac.uk",
   "license": "Apache-2.0",
   "devDependencies": {
+<<<<<<< HEAD
     "composer-admin": "^0.19.1",
     "composer-cli": "^0.19.1",
     "composer-client": "^0.19.1",
@@ -23,6 +28,15 @@
     "cucumber": "^2.2.0",
     "eslint": "latest",
     "nyc": "latest",
+=======
+    "composer-admin": "latest",
+    "composer-client": "latest",
+    "composer-common": "latest",
+    "composer-connector-embedded": "latest",
+    "chai": "latest",
+    "eslint": "latest",
+    "istanbul": "latest",
+>>>>>>> 3cd89f379a4ae399e4a31ea223c139b219c2a119
     "mkdirp": "latest",
     "mocha": "latest"
   }

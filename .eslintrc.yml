@@ -3,10 +3,16 @@ env:
     mocha: true
 extends: 'eslint:recommended'
 parserOptions:
+<<<<<<< HEAD
     ecmaVersion: 8
     sourceType:
         - script
 globals:
+=======
+    sourceType:
+        - script
+globals: 
+>>>>>>> 3cd89f379a4ae399e4a31ea223c139b219c2a119
     getFactory: true
     getSerializer: true
     getAssetRegistry: true
