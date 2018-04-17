@@ -27,6 +27,7 @@ asset PatientInfo identified by id {
   o DateTime dayOfBirth optional
   o Integer phonenumber optional
   o Nationality nationality optional
+  o String Diagnosis 
   o String[] medicationArray optional
   o Visits[] pastVisitsArray optional
 }
@@ -80,19 +81,14 @@ concept Visits {
 }
 
 transaction updateMedication {
-  --> Patient owner
-  o String[] medicationArray
-  o PatientInfo patientInfo
+  --> PatientInfo updateMedication
 }
 
 transaction updatePastVisits {
-  --> Patient owner
-  o Visits newVisit
-  o PatientInfo patientInfo
+  --> PatientInfo update
 }
 
 transaction updateContact {
-  --> Patient owner
-  o Integer phonenumber optional
-  o PatientInfo patientInfo
+  --> PatientInfo asset
+   o Integer newphonenumber
 }
